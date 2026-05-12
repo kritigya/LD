@@ -11,13 +11,17 @@ const authRoutes = require("./routes/auth");
 
 const app = express();
 
+const cors = require("cors");
+
 app.use(cors({
-  origin: "http://localhost:3000",
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"],
+  origin: "*",
+  methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));
 
+app.get("/", (req, res) => {
+  res.send("EldyKare Backend is Running 🚀");
+});
 app.use(express.json());
 // app.use(express.json());
 app.use("/api/auth", authRoutes);
