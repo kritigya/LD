@@ -12,7 +12,11 @@ const genzSchema = new mongoose.Schema({
   skills: String,
 
   phone: String,
-
+gender: {
+  type: String,
+  enum: ["male", "female"],
+  default: "male"
+},
   email: {
     type: String,
     required: true,

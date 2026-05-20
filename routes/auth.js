@@ -14,16 +14,16 @@ router.post("/register", async (req, res) => {
   try {
 
     const {
-      role,
-      name,
-      email,
-      password,
-      phone,
-      age,
-      college,
-      skills
-    } = req.body;
-
+  role,
+  name,
+  email,
+  password,
+  phone,
+  age,
+  college,
+  skills,
+  gender
+} = req.body;
     // CHECK EXISTING USER
 
     const existingElder =
@@ -67,18 +67,18 @@ router.post("/register", async (req, res) => {
     // CREATE GENZ
 
     else if (role === "genz") {
+user = new GenZ({
 
-      user = new GenZ({
+  name,
+  email,
+  password: hashedPassword,
+  phone,
+  college,
+  skills,
+  gender,
+  role
 
-        name,
-        email,
-        password: hashedPassword,
-        phone,
-        college,
-        skills,
-        role
-
-      });
+});
 
     }
 
